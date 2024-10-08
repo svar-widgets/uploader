@@ -5,7 +5,7 @@
 		"svelte"
 	],
 	"scripts": {
-		"prepare": "husky install",
+		"prepare": "husky",
 		"build": "cd svelte && yarn build",
 		"build:deps": "true",
 		"build:tests": "cd svelte && yarn build:tests",
