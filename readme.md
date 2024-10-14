@@ -1,16 +1,14 @@
-### :star: SVAR Uploader for Svelte
+<div align="center">
+	
+# SVAR Svelte File Uploader
 
-SVAR Uploader provides ready to use control for file uploading
+[![npm](https://img.shields.io/npm/v/wx-svelte-uploader.svg)](https://www.npmjs.com/package/wx-svelte-uploader)
+[![License](https://img.shields.io/github/license/svar-widgets/uploader)](https://github.com/svar-widgets/uploader/blob/main/license.txt)
+[![npm downloads](https://img.shields.io/npm/dm/wx-svelte-uploader.svg)](https://www.npmjs.com/package/wx-svelte-uploader)
 
-### :link: Useful Links
+</div>
 
--   [Documentation](https://docs.svar.dev/svelte/core/overview)
--   [How to start guide](https://docs.svar.dev/svelte/core/getting_started/)
--   [Demos](https://docs.svar.dev/svelte/uploader/samples/#/base/willow)
-
-### :page_with_curl: License
-
-SVAR Uploader for Svelte is available under MIT license.
+A Svelte UI component for easy and intuitive file uploading, allowing users to drag and drop files or select them from their device.
 
 ### How to Use
 
