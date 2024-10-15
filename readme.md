@@ -6,6 +6,8 @@
 [![License](https://img.shields.io/github/license/svar-widgets/uploader)](https://github.com/svar-widgets/uploader/blob/main/license.txt)
 [![npm downloads](https://img.shields.io/npm/dm/wx-svelte-uploader.svg)](https://www.npmjs.com/package/wx-svelte-uploader)
 
+[Demos](https://docs.svar.dev/svelte/core/samples-uploader)
+
 </div>
 
 A Svelte UI component for easy and intuitive file uploading, allowing users to drag and drop files or select them from their device.
