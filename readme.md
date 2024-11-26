@@ -18,13 +18,13 @@ There are two versions of the Uploader component:
 - version **1.x** was designed to work with Svelte 4
 - version **2.x** is created for Svelte 5 (please note that this version is in beta and may contain some instabilities)
 
-To use the SVAR Uploader v.2.0 beta for Svelte 5, install it as follows:
+To use SVAR Uploader v.2.0 beta for Svelte 5, install it as follows:
 
 ```
 npm install wx-svelte-uploader
 ```
 
-To use the SVAR Uploader for Svelte 4:
+To use SVAR Uploader for Svelte 4:
 
 ```
 npm install wx-svelte-uploader@1.3.0
