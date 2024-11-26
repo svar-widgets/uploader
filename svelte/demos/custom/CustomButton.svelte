@@ -4,23 +4,22 @@
 	import { apiKey } from "../../src/index";
 
 	const api = getContext(apiKey);
-	let log = [];
+	let log = $state([]);
 
-	function testUpload(){
+	function testUpload() {
 		api.open({
 			selected: file => {
-				log = [ ...log, `adding file: ${file.name}`];
+				log = [...log, `adding file: ${file.name}`];
 			},
-			uploaded: file => { 
-				log = [ ...log, file.url ] 
+			uploaded: file => {
+				log = [...log, file.url];
 			},
 		});
 	}
-
 </script>
 
 <div>
 	<Button click={testUpload}>Select file</Button>
 	<h3>Results:</h3>
-	<pre>{#each log as line}{line+"\n"}{/each}</pre>
+	<pre>{#each log as line}{line + "\n"}{/each}</pre>
 </div>

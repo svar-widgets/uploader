@@ -1,27 +1,31 @@
 <script>
 	import { uid } from "wx-lib-dom";
-	import { onMount, createEventDispatcher, setContext } from "svelte";
+	import { onMount, setContext } from "svelte";
 	import { apiKey } from "../helpers/consts";
 
-	const dispatch = createEventDispatcher();
+	let {
+		data = $bindable([]),
+		ready = $bindable(new Promise(() => ({}))),
 
-	export let data = [];
-	export let accept = "";
-	export let multiple = true;
-	export let folder = false;
-	export let uploadURL = "";
-	export let apiOnly = false;
-	export let disabled = false;
+		accept = "",
+		multiple = true,
+		folder = false,
+		uploadURL = "",
+		apiOnly = false,
+		disabled = false,
+		children,
+		onchange,
+		onupload,
+	} = $props();
 
-	export let ready = new Promise(() => ({}));
-
-	let input;
-	let drag;
+	let input = $state();
+	let drag = $state();
 	let count = 0;
 	let lastCtx = {};
 
 	const api = {
 		open: ctx => open(ctx),
+		getState: () => getState(),
 		droparea: (node, ctx) => {
 			if (disabled) return;
 
@@ -98,7 +102,7 @@
 		};
 
 		if (obj.selected) obj.selected(obj);
-		dispatch("select", obj);
+		onchange && onchange(obj);
 
 		if (multiple) {
 			data = [...data, obj];
@@ -146,13 +150,28 @@
 			});
 	}
 
+	// returns client if any file is being uploaded
+	// returns error if any file has failed and no file is being uploaded
+	// returns server if all files have been uploaded
+	function getState() {
+		let status = "server";
+		for (let i = 0; i < data.length; i++) {
+			if (data[i].status === "client") return "client";
+			if (data[i].status === "error") status = "error";
+		}
+
+		return status;
+	}
+
 	function updateData(id, result) {
 		const ind = data.findIndex(i => i.id == id);
-		const temp = (data[ind] = { ...data[ind], ...result });
-		if (temp && temp.uploaded) temp.uploaded(temp);
-		dispatch("upload", data[ind]);
+		const file = (data[ind] = { ...data[ind], ...result });
 
-		if (temp.temp) data = data.filter(i => i.id != id);
+		const res = { file, status: getState() };
+		if (file && file.uploaded) file.uploaded(res);
+		onupload && onupload(res);
+
+		if (file.temp) data = data.filter(i => i.id != id);
 	}
 
 	function dragenter() {
@@ -176,12 +195,12 @@
 		type="file"
 		class="input"
 		bind:this={input}
-		on:change={add}
+		onchange={add}
 		{accept}
 		{multiple}
 		{disabled}
 	/>
-	<slot />
+	{@render children?.()}
 {:else}
 	<div
 		class="label"
@@ -193,19 +212,21 @@
 			type="file"
 			class="input"
 			bind:this={input}
-			on:change={add}
+			onchange={add}
 			{accept}
 			{multiple}
 			{disabled}
 		/>
-		<slot {open}>
+		{#if children}{@render children({ open })}{:else}
 			<div class="dropzone">
 				<span>
 					Drop files here or
-					<span class="action" on:click={open}>select files</span>
+					<!-- svelte-ignore a11y_click_events_have_key_events -->
+					<!-- svelte-ignore a11y_no_static_element_interactions -->
+					<span class="action" onclick={open}>select files</span>
 				</span>
 			</div>
-		</slot>
+		{/if}
 	</div>
 {/if}
 

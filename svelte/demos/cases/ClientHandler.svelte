@@ -2,7 +2,7 @@
 	import { Uploader, UploaderList } from "../../src/index";
 	import { getData } from "../data";
 
-	let { data } = getData();
+	let { data } = $state(getData());
 
 	function getBase64(file) {
 		return new Promise(r => {
@@ -24,20 +24,28 @@
 		});
 	}
 
+	function handleUpload(ev) {
+		console.log(ev);
+	}
 </script>
 
 <div class="demo-box">
 	<h4>Uploader with custom handler (no server side)</h4>
 	<div class="demo">
-		<UploaderList bind:data={data} />
+		<UploaderList bind:data />
 		{#each data as obj (obj.id)}
-			{#if obj.status === 'server'}
+			{#if obj.status === "server"}
 				<img
 					src={obj.url}
 					alt=""
-					style="width:50px;height:50px;object-fit:cover;" />
+					style="width:50px;height:50px;object-fit:cover;"
+				/>
 			{/if}
 		{/each}
-		<Uploader bind:data={data} uploadURL={base64Uploader} />
+		<Uploader
+			bind:data
+			uploadURL={base64Uploader}
+			onupload={handleUpload}
+		/>
 	</div>
 </div>

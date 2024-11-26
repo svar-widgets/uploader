@@ -15,7 +15,7 @@
 	} from "wx-svelte-core";
 
 	const defRoute = links[0][0].replace(/\/:skin$/, "/willow");
-	const routes = {
+	const routes = $state({
 		"/": wrap({
 			component: {},
 			conditions: () => {
@@ -23,18 +23,15 @@
 				return false;
 			},
 		}),
-	};
+	});
 
-	let skin = "willow";
+	let skin = $state("willow");
 	function onRouteChange(path) {
 		const parts = path.split("/");
 		skin = parts[2];
 	}
 
-	const allLinks = [
-		...localLinks,
-		...links
-	];
+	const allLinks = [...localLinks, ...links];
 	allLinks.forEach(a => {
 		const [path, , component] = a;
 		routes[path] = wrap({

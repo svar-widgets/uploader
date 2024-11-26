@@ -1,5 +1,5 @@
 <script>
-	export let data;
+	let { data = $bindable([]) } = $props();
 
 	const fileSize = ["b", "Kb", "Mb", "Gb", "Tb", "Pb", "Eb"];
 
@@ -19,35 +19,42 @@
 		}
 		return Math.round(size * 100) / 100 + " " + fileSize[index];
 	}
-
 </script>
 
 {#if data.length}
 	<div class="layout">
 		<div class="header">
-			<i class="icon wxi-close" on:click={removeAll} />
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_static_element_interactions -->
+			<i class="icon wxi-close" onclick={removeAll}></i>
 		</div>
 		<div class="list">
 			{#each data as obj (obj.id)}
 				<div class="row">
-					<div class="file-icon" />
+					<div class="file-icon"></div>
 					<div class="name">{obj.name}</div>
 					{#if obj.file}
 						<div class="size">{formatSize(obj.file.size)}</div>
 					{/if}
 					<div class="controls">
-						{#if obj.status === 'client'}
-							<i class="icon wxi-spin wxi-loading" />
-						{:else if obj.status === 'error'}
-							<i class="icon wxi-alert" />
+						{#if obj.status === "client"}
+							<i class="icon wxi-spin wxi-loading"></i>
+						{:else if obj.status === "error"}
+							<i class="icon wxi-alert"></i>
+							<!-- svelte-ignore a11y_click_events_have_key_events -->
+							<!-- svelte-ignore a11y_no_static_element_interactions -->
 							<i
 								class="icon wxi-close"
-								on:click={() => remove(obj.id)} />
-						{:else if !obj.status || obj.status === 'server'}
-							<i class="icon wxi-check" />
+								onclick={() => remove(obj.id)}
+							></i>
+						{:else if !obj.status || obj.status === "server"}
+							<i class="icon wxi-check"></i>
+							<!-- svelte-ignore a11y_click_events_have_key_events -->
+							<!-- svelte-ignore a11y_no_static_element_interactions -->
 							<i
 								class="icon wxi-close"
-								on:click={() => remove(obj.id)} />
+								onclick={() => remove(obj.id)}
+							></i>
 						{/if}
 					</div>
 				</div>
@@ -90,9 +97,6 @@
 		text-overflow: ellipsis;
 	}
 
-	.controls {
-	}
-
 	.icon {
 		display: flex;
 		justify-content: center;
@@ -128,5 +132,4 @@
 	.wxi-alert {
 		display: flex;
 	}
-
 </style>

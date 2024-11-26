@@ -6,8 +6,6 @@
 [![License](https://img.shields.io/github/license/svar-widgets/uploader)](https://github.com/svar-widgets/uploader/blob/main/license.txt)
 [![npm downloads](https://img.shields.io/npm/dm/wx-svelte-uploader.svg)](https://www.npmjs.com/package/wx-svelte-uploader)
 
-[Demos](https://docs.svar.dev/svelte/core/samples-uploader)
-
 </div>
 
 A Svelte UI component for easy and intuitive file uploading, allowing users to drag and drop files or select them from their device.
@@ -30,6 +28,22 @@ To use the widget, simply import the package and include the component in your S
 
 <UploaderList bind:data />
 <Uploader {uploadURL} bind:data on:upload={handleUpload} />
+```
+
+### Svelte 4 and Svelte 5 versions
+
+There are two versions of the library: the 1.x version, designed to work with Svelte 4, and the 2.x version, created for Svelte 5. Please note that the 2.x version is in beta and may contain some instabilities.
+
+To use the SVAR Uploader beta for Svelte 5, install it as follows:
+
+```
+npm install wx-svelte-uploader
+```
+
+To use the SVAR Uploader for Svelte 4:
+
+```
+npm install wx-svelte-uploader@1.3.0
 ```
 
 ### How to Modify

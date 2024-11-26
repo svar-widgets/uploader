@@ -1,13 +1,13 @@
 <script>
 	import { Uploader, UploaderList } from "../../src/index";
 
-	let data = [];
-	let data2 = [];
+	let data = $state([]);
+	let data2 = $state([]);
 
 	const uploadURL = "http://localhost:3000/data";
 
 	function handleUpload(ev) {
-		console.log(ev.detail);
+		console.log(ev);
 	}
 </script>
 
@@ -15,7 +15,7 @@
 	<h4>Uploader with default drop zone</h4>
 	<div class="demo">
 		<UploaderList bind:data />
-		<Uploader {uploadURL} bind:data on:upload={handleUpload} />
+		<Uploader {uploadURL} bind:data onupload={handleUpload} />
 	</div>
 
 	<h4>Disabled Uploader</h4>
@@ -25,7 +25,7 @@
 			disabled
 			{uploadURL}
 			bind:data={data2}
-			on:upload={handleUpload}
+			onupload={handleUpload}
 		/>
 	</div>
 </div>
