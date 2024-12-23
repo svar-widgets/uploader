@@ -1,38 +1,52 @@
-# WX Uploader
+<div align="center">
+	
+# SVAR Svelte File Uploader
 
-## Usage
+[![npm](https://img.shields.io/npm/v/wx-svelte-uploader.svg)](https://www.npmjs.com/package/wx-svelte-uploader)
+[![License](https://img.shields.io/github/license/svar-widgets/uploader)](https://github.com/svar-widgets/uploader/blob/main/license.txt)
+[![npm downloads](https://img.shields.io/npm/dm/wx-svelte-uploader.svg)](https://www.npmjs.com/package/wx-svelte-uploader)
 
-```
+</div>
+
+A Svelte UI component for easy and intuitive file uploading, allowing users to drag and drop files or select them from their device.
+See the demos [here](https://docs.svar.dev/svelte/core/samples-uploader).
+
+### How to Use
+
+To use the widget, simply import the package and include the component in your Svelte file:
+
+```svelte
 <script>
-import { Uploader }  from 'wx-svelte-uploader';
+	import { Uploader, UploaderList } from "wx-svelte-uploader";
+
+	let data = [];
+	const uploadURL = "http://localhost:3000/data";
+
+	function handleUpload(ev) {
+		console.log(ev.detail);
+	}
 </script>
 
-<Uploader />
+<UploaderList bind:data />
+<Uploader {uploadURL} bind:data on:upload={handleUpload} />
 ```
 
-## Cli commands
+### How to Modify
 
-### Build
+Typically, you don't need to modify the code. However, if you wish to do so, follow these steps:
 
--   `yarn dev` - start project in dev mode, rebuild on change
--   `yarn build` - build production ready js file
+1. Run `yarn` to install dependencies. Note that this project is a monorepo using `yarn` workspaces, so npm will not work
+2. Start the project in development mode with `yarn start`
 
-the dev server will start at http://localhost:5100/tests.html
+### Run Tests
 
-### Tests
+To run the test:
 
-#### Run tests
-
-```
-yarn dev:tests
-cypress run -P ./ --config "baseUrl=http://localhost:5100"
-```
-
-#### Open Cypress console
-
-```
-yarn dev:tests
-cypress open -P ./ --config "baseUrl=http://localhost:5100"
-```
-
-dev:tests command will start dev server at http://localhost:5100/tests.html
+1. Start the test examples with:
+    ```sh
+    yarn start:tests
+    ```
+2. In a separate console, run the end-to-end tests with:
+    ```sh
+    yarn test:cypress
+    ```

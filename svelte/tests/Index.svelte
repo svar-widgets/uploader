@@ -25,16 +25,13 @@
 		}),
 	};
 
-	let skin = "willow";
+	let skin = $state("willow");
 	function onRouteChange(path) {
 		const parts = path.split("/");
 		skin = parts[2];
 	}
 
-	const allLinks = [
-		...localLinks,
-		...links
-	];
+	const allLinks = [...localLinks, ...links];
 	allLinks.forEach(a => {
 		const [path, , component] = a;
 		routes[path] = wrap({
