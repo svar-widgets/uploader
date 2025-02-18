@@ -23,41 +23,35 @@
 	let count = 0;
 	let lastCtx = {};
 
-	const api = {
-		open: ctx => open(ctx),
-		getState: () => getState(),
-		droparea: (node, ctx) => {
-			if (disabled) return;
+	export const droparea = (node, ctx) => {
+		if (disabled) return;
 
-			ctx = ctx || {};
-			node.addEventListener("dragenter", () => {
-				if (ctx.dragEnter) ctx.dragEnter();
-				dragenter();
-			});
-			node.addEventListener("dragleave", () => {
+		ctx = ctx || {};
+		node.addEventListener("dragenter", () => {
+			if (ctx.dragEnter) ctx.dragEnter();
+			dragenter();
+		});
+		node.addEventListener("dragleave", () => {
+			if (ctx.dragEnter) ctx.dragLeave();
+			dragleave();
+		});
+
+		node.addEventListener("dragover", ev => ev.preventDefault(), true);
+		node.addEventListener(
+			"drop",
+			ev => {
+				ev.preventDefault();
+				lastCtx = ctx;
+				drop(ev);
 				if (ctx.dragEnter) ctx.dragLeave();
-				dragleave();
-			});
-
-			node.addEventListener("dragover", ev => ev.preventDefault(), true);
-			node.addEventListener(
-				"drop",
-				ev => {
-					ev.preventDefault();
-					lastCtx = ctx;
-					drop(ev);
-					if (ctx.dragEnter) ctx.dragLeave();
-				},
-				true
-			);
-		},
+			},
+			true
+		);
 	};
 
 	onMount(() => {
 		input.webkitdirectory = folder;
 	});
-
-	setContext(apiKey, api);
 
 	function add(ev) {
 		const files = Array.from(ev.target.files);
@@ -153,7 +147,7 @@
 	// returns client if any file is being uploaded
 	// returns error if any file has failed and no file is being uploaded
 	// returns server if all files have been uploaded
-	function getState() {
+	export function getState() {
 		let status = "server";
 		for (let i = 0; i < data.length; i++) {
 			if (data[i].status === "client") return "client";
@@ -184,10 +178,12 @@
 		if (count === 0) drag = false;
 	}
 
-	function open(ctx) {
+	export function open(ctx) {
 		lastCtx = ctx || {};
 		input.click();
 	}
+
+	setContext(apiKey, { open, getState, droparea });
 </script>
 
 {#if apiOnly}
@@ -206,7 +202,7 @@
 		class="label"
 		class:active={drag}
 		class:wx-disabled={disabled}
-		use:api.droparea
+		use:droparea
 	>
 		<input
 			type="file"

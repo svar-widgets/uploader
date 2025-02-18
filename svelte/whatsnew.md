@@ -1,19 +1,35 @@
-### 2.0.1
+## 2.1.0
 
--   [add] svelte 5 support
+-   Using core@2.1.0
 
-### 1.3.0
+## 2.0.2
 
--   [dev] using core@1.3.0
+### Fixes
 
-### 0.2.1
+-   Restore ability to use api
 
--   [fix] disabled state was ignored by drag-n-drop operations
+## 2.0.1
 
-### 0.2.0
+### New features
 
--   [add] disabled state
+-   Svelte 5 support
 
-### 0.1.0
+## 1.3.0
+
+-   Using core@1.3.0
+
+## 0.2.1
+
+### Fixes
+
+-   Disabled state was ignored by drag-n-drop operations
+
+## 0.2.0
+
+### New features
+
+-   Disabled state
+
+## 0.1.0
 
 Initial version

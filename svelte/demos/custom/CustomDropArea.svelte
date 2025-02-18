@@ -1,12 +1,7 @@
 <script>
 	import { getContext } from "svelte";
 	import { apiKey } from "../../src/index";
-	/**
-	 * @typedef {Object} Props
-	 * @property {import('svelte').Snippet} [children]
-	 */
 
-	/** @type {Props} */
 	let { children } = $props();
 
 	const api = getContext(apiKey);
