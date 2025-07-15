@@ -1,3 +1,9 @@
+## 2.2.0
+
+### New features
+
+-   Ability to localize text labels
+
 ## 2.1.0
 
 -   Using core@2.1.0

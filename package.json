@@ -2,7 +2,8 @@
 	"private": true,
 	"name": "wx-uploader",
 	"workspaces": [
-		"svelte"
+		"svelte",
+		"locales"
 	],
 	"scripts": {
 		"build:deps": "true",

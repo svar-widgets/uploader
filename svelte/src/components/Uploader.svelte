@@ -1,7 +1,10 @@
 <script>
 	import { uid } from "wx-lib-dom";
-	import { onMount, setContext } from "svelte";
+	import { onMount, setContext, getContext } from "svelte";
 	import { apiKey } from "../helpers/consts";
+
+	import { locale } from "wx-lib-dom";
+	import { en } from "wx-uploader-locales";
 
 	let {
 		data = $bindable([]),
@@ -22,6 +25,14 @@
 	let drag = $state();
 	let count = 0;
 	let lastCtx = {};
+
+	// set locale
+	let l = getContext("wx-i18n");
+	if (!l) {
+		l = locale(en);
+		setContext("wx-i18n", l);
+	}
+	const _ = getContext("wx-i18n").getGroup("uploader");
 
 	export const droparea = (node, ctx) => {
 		if (disabled) return;
@@ -216,10 +227,12 @@
 		{#if children}{@render children({ open })}{:else}
 			<div class="dropzone">
 				<span>
-					Drop files here or
+					{_("Drop files here or")}
 					<!-- svelte-ignore a11y_click_events_have_key_events -->
 					<!-- svelte-ignore a11y_no_static_element_interactions -->
-					<span class="action" onclick={open}>select files</span>
+					<span class="action" onclick={open}
+						>{_("select files")}</span
+					>
 				</span>
 			</div>
 		{/if}

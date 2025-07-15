@@ -1,7 +1,11 @@
 <script>
+	import { getContext } from "svelte";
+
 	let { data = $bindable([]) } = $props();
 
-	const fileSize = ["b", "Kb", "Mb", "Gb", "Tb", "Pb", "Eb"];
+	const _ = getContext("wx-i18n").getGroup("uploader");
+
+	const fileSize = ["B", "KB", "MB", "GB", "TB", "PB", "EB"];
 
 	function removeAll() {
 		data = [];
@@ -17,7 +21,7 @@
 			index++;
 			size = size / 1024;
 		}
-		return Math.round(size * 100) / 100 + " " + fileSize[index];
+		return Math.round(size * 100) / 100 + " " + _(fileSize[index]);
 	}
 </script>
 
