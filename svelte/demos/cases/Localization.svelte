@@ -1,8 +1,8 @@
 <script>
 	import { Uploader, UploaderList } from "../../src/index";
-	import { Segmented, Locale } from "wx-svelte-core";
-	import { cn } from "wx-uploader-locales";
-	import { cn as cnCore } from "wx-core-locales";
+	import { Segmented, Locale } from "@svar-ui/svelte-core";
+	import { cn } from "@svar-ui/uploader-locales";
+	import { cn as cnCore } from "@svar-ui/core-locales";
 
 	let data = $state([]);
 

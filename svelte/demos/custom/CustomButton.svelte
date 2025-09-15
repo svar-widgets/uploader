@@ -1,5 +1,5 @@
 <script>
-	import { Button } from "wx-svelte-core";
+	import { Button } from "@svar-ui/svelte-core";
 	import { getContext } from "svelte";
 	import { apiKey } from "../../src/index";
 

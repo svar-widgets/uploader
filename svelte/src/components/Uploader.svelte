@@ -1,10 +1,10 @@
 <script>
-	import { uid } from "wx-lib-dom";
+	import { uid } from "@svar-ui/lib-dom";
 	import { onMount, setContext, getContext } from "svelte";
 	import { apiKey } from "../helpers/consts";
 
-	import { locale } from "wx-lib-dom";
-	import { en } from "wx-uploader-locales";
+	import { locale } from "@svar-ui/lib-dom";
+	import { en } from "@svar-ui/uploader-locales";
 
 	let {
 		data = $bindable([]),

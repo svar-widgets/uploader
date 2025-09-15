@@ -1,5 +1,5 @@
 {
-	"name": "wx-uploader-locales",
+	"name": "@svar-ui/uploader-locales",
 	"version": "2.2.1",
 	"description": "Locales for WX Uploader widget",
 	"type": "module",
