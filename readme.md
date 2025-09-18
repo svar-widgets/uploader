@@ -2,9 +2,9 @@
 	
 # SVAR Svelte File Uploader
 
-[![npm](https://img.shields.io/npm/v/wx-svelte-uploader.svg)](https://www.npmjs.com/package/wx-svelte-uploader)
+[![npm](https://img.shields.io/npm/v/@svar-ui/svelte-uploader.svg)](https://www.npmjs.com/package/@svar-ui/svelte-uploader)
 [![License](https://img.shields.io/github/license/svar-widgets/uploader)](https://github.com/svar-widgets/uploader/blob/main/license.txt)
-[![npm downloads](https://img.shields.io/npm/dm/wx-svelte-uploader.svg)](https://www.npmjs.com/package/wx-svelte-uploader)
+[![npm downloads](https://img.shields.io/npm/dm/@svar-ui/svelte-uploader.svg)](https://www.npmjs.com/package/@svar-ui/svelte-uploader)
 
 </div>
 
@@ -16,7 +16,7 @@ To use the widget, simply import the package and include the component in your S
 
 ```svelte
 <script>
-	import { Uploader, UploaderList } from "wx-svelte-uploader";
+	import { Uploader, UploaderList } from "@svar-ui/svelte-uploader";
 
 	let data = [];
 	const uploadURL = "http://localhost:3000/data";
@@ -37,7 +37,7 @@ There are two versions of the library: the 1.x version, designed to work with Sv
 To use the SVAR Uploader beta for Svelte 5, install it as follows:
 
 ```
-npm install wx-svelte-uploader
+npm install @svar-ui/svelte-uploader
 ```
 
 To use the SVAR Uploader for Svelte 4:
