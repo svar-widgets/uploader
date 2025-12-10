@@ -1,7 +1,17 @@
 <script>
-	import { getContext } from "svelte";
+	import { getContext, setContext } from "svelte";
+
+	import { locale } from "@svar-ui/lib-dom";
+	import { en } from "@svar-ui/uploader-locales";
 
 	let { data = $bindable([]) } = $props();
+
+	// set locale
+	let l = getContext("wx-i18n");
+	if (!l) {
+		l = locale(en);
+		setContext("wx-i18n", l);
+	}
 
 	const _ = getContext("wx-i18n").getGroup("uploader");
 
