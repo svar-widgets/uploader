@@ -1,9 +1,7 @@
 <script>
-	import { uid } from "@svar-ui/lib-dom";
+	import { locale, uid } from "@svar-ui/lib-dom";
 	import { onMount, setContext, getContext } from "svelte";
 	import { apiKey } from "../helpers/consts";
-
-	import { locale } from "@svar-ui/lib-dom";
 	import { en } from "@svar-ui/uploader-locales";
 
 	let {

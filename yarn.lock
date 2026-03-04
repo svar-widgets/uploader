@@ -651,15 +651,15 @@
   resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.27.8.tgz#6667fac16c436b5434a387a34dedb013198f6e6e"
   integrity sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==
 
-"@svar-ui/core-locales@2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@svar-ui/core-locales/-/core-locales-2.4.0.tgz#95e2a4f40c21890c886e0fc2ff76d57da9a7a381"
-  integrity sha512-FXB4MtqbZw4TNdPfELsMum6y5Tgu0PRA7a6upJjLWDYJjlcYEcyT49iJONb30gPIL7HgJkUylJnz6iNuNA3Icw==
+"@svar-ui/core-locales@2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@svar-ui/core-locales/-/core-locales-2.4.1.tgz#f1efd270c73c80a2534c67bcda4d1e9578f98f55"
+  integrity sha512-+vx5LzmVkzQDm0g0t3gVxzV+hkxyAETMfs8tS2bCEsUJp7KbFxlyIk/MyW/DuPwT1DicW1zy4fahsqP43PvRfg==
 
-"@svar-ui/lib-dom@0.11.1":
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/@svar-ui/lib-dom/-/lib-dom-0.11.1.tgz#926250ec75c76008ead9ef1a84a4cb96614b46e4"
-  integrity sha512-4wgerhDVttvrQ9t6OjHur34Of+VVr2VygA16HHGcWHytgdnOuGgfZb5PeBEhCJw/pO3RKfJvBHbaMIzL4IR//g==
+"@svar-ui/lib-dom@0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@svar-ui/lib-dom/-/lib-dom-0.12.0.tgz#ace3349b87f19805a5c8e3ba7d34dcdd29316e1d"
+  integrity sha512-rrFdV/SlYsWFejtRHAltk/Tk91xM+uifvMwM0EmgTqi16BSe86DnnE7czMtEEVx0308cTcrD0OX2hmO+MFgArg==
 
 "@svar-ui/lib-state@^1.9.6":
   version "1.9.6"
@@ -673,13 +673,13 @@
   dependencies:
     "@svar-ui/lib-state" "^1.9.6"
 
-"@svar-ui/svelte-core@2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@svar-ui/svelte-core/-/svelte-core-2.4.0.tgz#5be06440193423065eab8f8975d9f40e48646f16"
-  integrity sha512-lJI34dVoqSk79/Ggwv8FupU7iDP4jKlbD+F1xtuITi/S4iC3AeU0o3QiVC7duN6oLlshvDesq8Ms7cPihP54Aw==
+"@svar-ui/svelte-core@2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@svar-ui/svelte-core/-/svelte-core-2.4.1.tgz#06fd65271137684ee5eb9874a9f74b75df25f520"
+  integrity sha512-Y/DDFSwl6KMzMV/Ar7ChIxY8uC2bDgNFlpWpTXLqEjQPboVUDLqtXToBwSfZKFEYo45xVEjeYqU6nbe2ndd56Q==
   dependencies:
-    "@svar-ui/core-locales" "2.4.0"
-    "@svar-ui/lib-dom" "0.11.1"
+    "@svar-ui/core-locales" "2.4.1"
+    "@svar-ui/lib-dom" "0.12.0"
     "@svar-ui/lib-svelte" "0.5.2"
 
 "@svar-ui/vite-tools@1.0.5":
