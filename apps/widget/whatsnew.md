@@ -1,0 +1,89 @@
+## 2.6.2
+
+### Updates
+
+- Native TypeScript support with types generated from the component sources
+
+### Fixes
+
+- A drop area with `dragEnter` and no `dragLeave` throws an error on drag leave and on drop
+
+## 2.6.1
+
+- Using Svelte Core v2.6.1
+
+## 2.6.0
+
+- Using Svelte Core v2.6.0
+
+## 2.5.3
+
+- Using Svelte Core v2.5.3
+
+## 2.5.1
+
+- Using Svelte Core v2.5.1
+
+## 2.5.0
+
+- Using Svelte Core v2.5.0
+
+## 2.4.1
+
+- Using Svelte Core v2.4.1
+
+## 2.4.0
+
+- Using Svelte Core v2.4.0
+
+## 2.3.0
+
+- Using Svelte Core v2.3.1
+
+## 2.2.1
+
+### Fixes
+
+- Using in Salesforce environment
+
+## 2.2.0
+
+### New features
+
+- Ability to localize text labels
+
+## 2.1.0
+
+- Using Svelte Core v2.1.0
+
+## 2.0.2
+
+### Fixes
+
+- Restore ability to use api
+
+## 2.0.1
+
+### New features
+
+- Svelte 5 support
+
+## 1.3.0
+
+- Using Svelte Core v1.3.0
+
+## 0.2.1
+
+### Fixes
+
+- Disabled state was ignored by drag-n-drop operations
+
+## 0.2.0
+
+### New features
+
+- Disabled state
+
+## 0.1.0
+
+Initial version
